@@ -4,7 +4,7 @@ from requirements import *
 
 def generateExercise(n, r):
     random.seed()
-    ans = ()
+    ans = []
     been = (0, 1,)
     div = 1
     for i in range(1, r + 1):
@@ -41,6 +41,14 @@ def generateExercise(n, r):
             if a + (b * (c - 1)) <= div * r:
                 ans += generateFunction(a, c, b, div, r)
             t = t + 1
-    for i, j in ans:
-        print(i + j)
+    random.shuffle(ans)
+    excfile = open("Exercise.txt", mode='w')
+    ansfile = open("Answer.txt", mode='w')
+    # for i, j in ans:
+    #     print(i + j)
+    for i in range(0, n):
+        excfile.write(str(1 + i) + '. ' + ans[i][0] + '\n')
+        ansfile.write(str(1 + i) + '. ' + ans[i][1] + '\n')
+    excfile.close()
+    ansfile.close()
     return

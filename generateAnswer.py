@@ -8,11 +8,10 @@ def repl(matched):
 
 
 def generateAnswer(func):
-    func = func[:-2]
     func = str(re.sub("[1-9][0-9]*\'[1-9][0-9]*/[1-9][0-9]*", repl, func))
     func = str(re.sub("[1-9][0-9]*/[1-9][0-9]*", repl, func))
     # print(func)
     func = func.replace('÷', '/')
     func = func.replace('×', '*')
-    ans = eval(func)
+    ans = decimal.Decimal(eval(func))
     return ans

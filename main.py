@@ -10,13 +10,13 @@ def main(argv):
     except getopt.GetoptError:
         print('Arguments ERROR')
         sys.exit(2)
-    print(opts)
+    # print(opts)
     n, r = 10, -1
     flage, flaga = 0, 0
     for opt, arg in opts:
         if opt == '-h':
-            print('Myapp.exe -r <radius> (-n <number=10>) or')
-            print('Myapp.exe -e <exerciseFile> -a <answerFile>')
+            print('Myapp.exe -r <radius> [-n <number=10>] to generate n Exercise which between 0 and r. Or')
+            print('Myapp.exe -e <exerciseFile> -a <answerFile> to check if answer right')
         if opt in ('-n', '--num'):
             try:
                 n = int(arg)
@@ -56,11 +56,15 @@ def main(argv):
     elif r > 0:
         generateExercise(n, r)
     else:
-        print('Require -r <radius> argument.')
+        print('Require -r <radius> argument. Input Myapp.exe -h for further help.')
         sys.exit(2)
+    if flage:
+        efile.close()
+    if flaga:
+        afile.close()
 
 
 if __name__ == '__main__':
-    print(len(sys.argv))
-    print(sys.argv)
+    # print(len(sys.argv))
+    # print(sys.argv)
     main(sys.argv[1:])

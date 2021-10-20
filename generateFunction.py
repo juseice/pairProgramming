@@ -9,8 +9,6 @@ def fractionsNormalize(s, r):
         return str(x.numerator)
     elif x > 1:
         t = int(x.numerator / x.denominator)
-        if t > r:
-            t = r - 1
         b = int(x.numerator % x.denominator)
         return str(t) + '\'' + str(b) + '/' + str(x.denominator)
     else:
@@ -38,12 +36,16 @@ def generateFunction(init, num, inc, div, r):
             if div == 1:
                 dec[i] += str(arr[(-i - 1)])
             else:
-                dec[i] += fractionsNormalize(arr[i] / (div + random.choice(range(-div + 2, div))), r)
+                dec[i] += fractionsNormalize(arr[i] / (div + random.choice(range(-div + 2, div))), div)
             if i == b:
                 dec[i] += ')'
         char = [random.choice(calcChar), ]
         for i in range(1, num - 1):
             char += [random.choice(calcChar), ]
+        # else:
+        #     char = [random.choice(calcChar[:-2]), ]
+        #     for i in range(1, num - 1):
+        #         char += [random.choice(calcChar[:-2]), ]
         for i in range(0, num - 1):
             if char[i] == '-' and arr[-i - 1] < arr[-i - 2]:
                 char[i] = '+'
@@ -53,10 +55,10 @@ def generateFunction(init, num, inc, div, r):
         func += ' = '
         #        print(func)
         try:
-            ans = generateAnswer(func)
+            ans = generateAnswer(func[:-2])
         except ZeroDivisionError:
             ans = -1
         if '÷' in char and ans == round(ans):
             ans = -1
-    ans = fractionsNormalize(ans, 1000 * div)
-    return (func, ans),
+    ans = fractionsNormalize(ans, max(1000 * div, 1000 * r))
+    return [func, ans],
