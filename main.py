@@ -10,7 +10,7 @@ def main(argv):
     except getopt.GetoptError:
         print('Arguments ERROR')
         sys.exit(2)
-    n, r = 10000, -1
+    n, r = 50, -1
     flage, flaga = 0, 0
     for opt, arg in opts:   # process arguments
         if opt == '-h':
