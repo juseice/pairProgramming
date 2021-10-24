@@ -20,7 +20,7 @@ def main(argv):
             try:
                 n = int(arg)
                 if n > 1e5:
-                    print('n cannot larger than 1e6. Set r to 1e6')
+                    print('n cannot larger than 1e5. Set r to 1e5')
                     n = int(1e5)
             except ValueError:
                 print('n must be a number')
@@ -38,14 +38,14 @@ def main(argv):
             try:
                 efile = open(arg, mode='r')
                 flage = 1
-            except [OSError, FileNotFoundError]:
+            except (OSError, FileNotFoundError):
                 print('Exercise file not found. Please double check the path and your spelling.')
                 sys.exit(2)
         if opt in ('-a', '--aFile'):
             try:
                 afile = open(arg, mode='r')
                 flaga = 1
-            except [OSError, FileNotFoundError]:
+            except (OSError, FileNotFoundError):
                 print('Answer file not found. Please double check the path and your spelling.')
                 sys.exit(2)
 
