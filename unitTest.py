@@ -35,7 +35,7 @@ class TestAns(unittest.TestCase):
         answer = generateAnswer('19 ÷ (8 × 5) + 2')
         self.assertTrue(abs(answer - decimal.Decimal(99/40)) < 0.0000001)
 
-    def test_ans6(self):
+    def test_ans7(self):
         answer = generateAnswer('60 × 80 - 3\'1/4')
         self.assertEqual(answer,4796.75)
 
