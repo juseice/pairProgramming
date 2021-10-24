@@ -10,9 +10,9 @@ Coding Standard | 代码规范 (为目前的开发制定合适的规范) | 5 | 5
 Design | 具体设计 | 20 | 15
 Coding | 具体编码 | 60 | 80
 Code Review | 代码复审 | 30 | 60
-Test | 测试（自我测试，修改代码，提交修改）| 60 | 
+Test | 测试（自我测试，修改代码，提交修改）| 60 | 90
 **Reporting** | **报告**
-Test report | 测试报告 | 60 | 
-Size Measurement | 计算工作量 | 20 | 
-Postmortem & Process Improvement |  事后总结, 并提出过程改进计划 | 10 | 
-Total | 合计 | 505 | 
+Test report | 测试报告 | 60 | 60
+Size Measurement | 计算工作量 | 20 | 10
+Postmortem & Process Improvement |  事后总结, 并提出过程改进计划 | 10 | 30
+Total | 合计 | 505 | 580
